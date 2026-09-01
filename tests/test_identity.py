@@ -33,8 +33,12 @@ RETIRED_OWNER = "concord" + "loom"
 # The old name is a fact about installations that already exist, so it survives
 # where a user still carries it: the pre-4.0 selector in the migration table,
 # and the notes that tell someone who installed before the rename what to look
-# for. Everywhere else it is drift.
+# for. The changelog is on the list for a different reason — semantic-release
+# writes it out of the commit messages after this check has run, and the commit
+# that renames the organization has to name the one it replaced. Everywhere else
+# the old name is drift.
 ALLOWED_RETIRED = {
+    "CHANGELOG.md",
     "CONTRIBUTING.md",
     "docs/install.md",
     "docs/migration-v4.md",
@@ -118,10 +122,12 @@ def test_every_published_url_names_the_current_repository() -> None:
     # been resolving through GitHub's rename redirect went to a hard 404 that
     # way. install.sh fetches its own payload over one of these, and no other
     # check in the tree reads them.
+    # No file is exempt from this one. The changelog is allowed to *mention* the
+    # retired organization, because the release notes are generated from commit
+    # messages — it is not allowed to link to it, and 195 of these links live
+    # there.
     strays: list[str] = []
     for relative, text in readable_files():
-        if relative in ALLOWED_RETIRED:
-            continue
         for owner, repository in set(GITHUB_HOST.findall(text)):
             if owner != ORGANIZATION:
                 strays.append(f"{relative}: {owner}/{repository or ''}")
