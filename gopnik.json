@@ -12,6 +12,7 @@
       "python3 tests/test_readme.py",
       "python3 tests/test_guides.py",
       "python3 tests/test_brand.py",
+      "python3 tests/test_identity.py",
       "python3 scripts/check_parity.py",
       "sh -n install.sh"
     ],
