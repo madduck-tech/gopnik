@@ -1,5 +1,17 @@
 # Changelog
 
+# [6.0.0](https://github.com/madduck-tech/gopnik/compare/v5.2.0...v6.0.0) (2026-09-01)
+
+
+* feat!: the marketplace and every published link moved to a renamed organization ([#87](https://github.com/madduck-tech/gopnik/issues/87)) ([f25dbe7](https://github.com/madduck-tech/gopnik/commit/f25dbe759b4dec6f4fcc2f76cd982c397707bb3b))
+
+
+### BREAKING CHANGES
+
+* the plugin selector is now `gopnik@madduck-tech`. An
+installation registered as `gopnik@concordloom` keeps working, but does not
+receive updates under the new marketplace name until it is added again.
+
 # [5.2.0](https://github.com/madduck-tech/gopnik/compare/v5.1.0...v5.2.0) (2026-08-22)
 
 

@@ -1,7 +1,7 @@
 {
   "name": "gopnik",
   "displayName": "Gopnik",
-  "version": "5.2.0",
+  "version": "6.0.0",
   "description": "Your coding agent says it works. Gopnik tries to prove it doesn't — against the code, the delivered revision, and the checks themselves.",
   "author": {
     "name": "Madduck Tech",

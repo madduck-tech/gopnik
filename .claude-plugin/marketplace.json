@@ -12,7 +12,7 @@
       "name": "gopnik",
       "source": "./plugins/gopnik",
       "description": "Your coding agent says it works. Gopnik tries to prove it doesn't — against the code, the delivered revision, and the checks themselves.",
-      "version": "5.2.0",
+      "version": "6.0.0",
       "author": {
         "name": "Madduck Tech",
         "url": "https://github.com/madduck-tech"
