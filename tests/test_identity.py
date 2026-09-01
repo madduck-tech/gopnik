@@ -8,6 +8,12 @@ have to agree, and nothing here noticed when they did not — a manifest renamed
 to anything at all left the whole suite green while every guide still named the
 old marketplace, and an installer left pointing at the old organization was seen
 by no check in the tree.
+
+A URL is the owner *and* the repository, because that is what GitHub's rename
+redirect is keyed on. Rewriting only the owner of a link whose repository name
+is also historical produces a pair that never existed, and that is not a
+cosmetic difference: it turned 78 changelog links that had been resolving
+through the redirect into hard 404s.
 """
 
 from __future__ import annotations
@@ -39,7 +45,7 @@ ALLOWED_RETIRED = {
 
 GITHUB_HOST = re.compile(
     r"(?:github\.com|raw\.githubusercontent\.com|codeload\.github\.com)"
-    r"[:/]([A-Za-z0-9._-]+)"
+    r"[:/]([A-Za-z0-9._-]+)(?:/([A-Za-z0-9._-]+?)(?:\.git)?(?=[/\s\"'`)\]]|$))?"
 )
 SELECTOR = re.compile(r"gopnik@([A-Za-z0-9._-]+)")
 
@@ -48,6 +54,12 @@ def owner_of(url: str) -> str:
     match = GITHUB_HOST.search(url)
     assert match, f"not a GitHub URL: {url}"
     return match.group(1)
+
+
+def repository_of(url: str) -> str:
+    match = GITHUB_HOST.search(url)
+    assert match and match.group(2), f"not a repository URL: {url}"
+    return match.group(2)
 
 
 def repository_files() -> list[pathlib.Path]:
@@ -73,6 +85,7 @@ def readable_files() -> list[tuple[str, str]]:
 
 
 ORGANIZATION = owner_of(MARKETPLACE["owner"]["url"])
+REPOSITORY = repository_of(MARKETPLACE["plugins"][0]["repository"])
 
 
 def test_the_marketplace_name_is_the_organization() -> None:
@@ -98,18 +111,23 @@ def test_both_manifests_point_at_the_same_organization() -> None:
     assert not wrong, f"these name another organization: {wrong}"
 
 
-def test_every_published_url_names_the_current_organization() -> None:
-    # install.sh fetches its own payload over these, and no other check in the
-    # tree reads them: an installer left on the old organization was invisible
-    # to every test until this one.
+def test_every_published_url_names_the_current_repository() -> None:
+    # Both halves, because a redirect is keyed on the whole pair. Rewriting the
+    # owner of a link whose repository name is also historical does not move it
+    # — it invents a pair that never existed, and 78 changelog links that had
+    # been resolving through GitHub's rename redirect went to a hard 404 that
+    # way. install.sh fetches its own payload over one of these, and no other
+    # check in the tree reads them.
     strays: list[str] = []
     for relative, text in readable_files():
         if relative in ALLOWED_RETIRED:
             continue
-        for owner in set(GITHUB_HOST.findall(text)):
+        for owner, repository in set(GITHUB_HOST.findall(text)):
             if owner != ORGANIZATION:
-                strays.append(f"{relative}: {owner}")
-    assert not strays, f"URLs naming another organization: {sorted(strays)}"
+                strays.append(f"{relative}: {owner}/{repository or ''}")
+            elif repository and repository != REPOSITORY:
+                strays.append(f"{relative}: {owner}/{repository}")
+    assert not strays, f"URLs naming another repository: {sorted(strays)}"
 
 
 def test_every_selector_names_the_published_marketplace() -> None:
