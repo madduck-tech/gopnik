@@ -21,7 +21,7 @@ exist, compare them and ask the operator which one is authoritative.
 
 | Before 4.0 | Gopnik 4 |
 | --- | --- |
-| `cerberus@concordloom` | `gopnik@concordloom` |
+| `cerberus@concordloom` | `gopnik@madduck-tech` |
 | `cerberus`, `cerberus-critic`, `cerberus-setup` | `gopnik`, `gopnik-critic`, `gopnik-setup` |
 | `cerberus_setup.py` | `gopnik_setup.py` |
 | `cerberus.json` | `gopnik.json` |

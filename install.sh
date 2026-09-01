@@ -3,17 +3,17 @@
 #
 # Most people do not need this script.
 #
-#   Claude Code: `/plugin marketplace add concordloom/gopnik` then
-#                `/plugin install gopnik@concordloom`
-#   Codex:       `codex plugin marketplace add concordloom/gopnik` then
-#                `codex plugin add gopnik@concordloom`
+#   Claude Code: `/plugin marketplace add madduck-tech/gopnik` then
+#                `/plugin install gopnik@madduck-tech`
+#   Codex:       `codex plugin marketplace add madduck-tech/gopnik` then
+#                `codex plugin add gopnik@madduck-tech`
 #
 # What those do not do is put the files in your repository, or leave you a
 # gopnik.json to edit and commit. That is what this is for.
 #
 # Nothing has to be cloned first. From inside your project:
 #
-#   curl -fsSL https://raw.githubusercontent.com/concordloom/gopnik/main/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/madduck-tech/gopnik/main/install.sh | sh
 #
 # or, from a clone:
 #
@@ -100,7 +100,7 @@ say() { printf '  %s\n' "$1"; }
 if [ ! -f "$SKILL_SRC/SKILL.md" ]; then
   TMP=$(mktemp -d)
   trap 'rm -rf "$TMP"' EXIT INT TERM
-  URL="https://codeload.github.com/concordloom/gopnik/tar.gz/$REF"
+  URL="https://codeload.github.com/madduck-tech/gopnik/tar.gz/$REF"
 
   if command -v curl >/dev/null 2>&1; then
     curl -fsSL "$URL" -o "$TMP/src.tar.gz"
@@ -122,7 +122,7 @@ if [ ! -f "$SKILL_SRC/SKILL.md" ]; then
 
   if [ ! -f "$SKILL_SRC/SKILL.md" ]; then
     echo "fetched $REF but the skill is not in it — report this at" >&2
-    echo "https://github.com/concordloom/gopnik/issues" >&2
+    echo "https://github.com/madduck-tech/gopnik/issues" >&2
     exit 1
   fi
 fi

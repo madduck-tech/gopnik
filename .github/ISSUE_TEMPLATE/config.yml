@@ -3,5 +3,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Question or idea
-    url: https://github.com/concordloom/gopnik/discussions
+    url: https://github.com/madduck-tech/gopnik/discussions
     about: For anything not yet shaped as work. A discussion ends by opening an issue.

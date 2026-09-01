@@ -1,8 +1,8 @@
 {
-  "name": "concordloom",
+  "name": "madduck-tech",
   "owner": {
-    "name": "Concord Loom",
-    "url": "https://github.com/concordloom"
+    "name": "Madduck Tech",
+    "url": "https://github.com/madduck-tech"
   },
   "metadata": {
     "description": "Verification tooling for AI coding agents."
@@ -14,11 +14,11 @@
       "description": "Your coding agent says it works. Gopnik tries to prove it doesn't — against the code, the delivered revision, and the checks themselves.",
       "version": "5.2.0",
       "author": {
-        "name": "Concord Loom",
-        "url": "https://github.com/concordloom"
+        "name": "Madduck Tech",
+        "url": "https://github.com/madduck-tech"
       },
-      "homepage": "https://github.com/concordloom/gopnik",
-      "repository": "https://github.com/concordloom/gopnik",
+      "homepage": "https://github.com/madduck-tech/gopnik",
+      "repository": "https://github.com/madduck-tech/gopnik",
       "license": "MIT",
       "category": "quality",
       "tags": [

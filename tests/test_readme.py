@@ -71,11 +71,11 @@ def test_install_is_one_agent_prompt_not_a_platform_matrix() -> None:
     expected = {
         README: [
             "Before anything else, read this complete raw guide via stdout only—do not save it—then follow it exactly:",
-            "https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md",
+            "https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md",
         ],
         README_RU: [
             "Прежде чем что-либо делать, прочитай эту полную raw-инструкцию только через stdout — не сохраняй её в файл — и точно следуй ей:",
-            "https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md",
+            "https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md",
         ],
     }
     for path, lines in expected.items():

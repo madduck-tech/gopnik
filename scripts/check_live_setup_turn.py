@@ -73,7 +73,7 @@ CRITIC_COMPLETE_MARKER = "GOPNIK_CRITIC_STATUS: complete"
 CRITIC_BLOCKED_MARKER = "GOPNIK_CRITIC_STATUS: blocked"
 CRITIC_SURFACES_MARKER = "GOPNIK_CRITIC_SURFACES:"
 RAW_INSTALL_URL = (
-    "https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md"
+    "https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md"
 )
 #: Where the fixture facts live when the caller names no fixture. This is a
 #: path rather than a table of literals on purpose: the strings below used to be

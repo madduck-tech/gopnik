@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/concordloom/gopnik/actions/workflows/ci.yml"><img src="https://github.com/concordloom/gopnik/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/madduck-tech/gopnik/actions/workflows/ci.yml"><img src="https://github.com/madduck-tech/gopnik/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-f29b38" alt="MIT License"></a>
 </p>
 
@@ -23,7 +23,7 @@ Paste this into your coding agent:
 
 ```text
 Before anything else, read this complete raw guide via stdout only—do not save it—then follow it exactly:
-https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md
+https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md
 ```
 
 The guide asks for your language and install scope, then configures the project
@@ -92,7 +92,7 @@ Paste this into the agent that has Gopnik installed:
 
 ```text
 Uninstall Gopnik. Read the complete raw guide without saving it to a file, then follow it exactly:
-https://raw.githubusercontent.com/concordloom/gopnik/main/docs/uninstall.md
+https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/uninstall.md
 ```
 
 ## License

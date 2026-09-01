@@ -109,19 +109,27 @@ instead; wait before changing scope.
 ### Claude Code
 
 ```sh
-claude plugin marketplace add concordloom/gopnik
-claude plugin marketplace update concordloom
-claude plugin install gopnik@concordloom
-claude plugin update gopnik@concordloom
+claude plugin marketplace add madduck-tech/gopnik
+claude plugin marketplace update madduck-tech
+claude plugin install gopnik@madduck-tech
+claude plugin update gopnik@madduck-tech
 ```
 
 ### Codex
 
 ```sh
-codex plugin marketplace add concordloom/gopnik
-codex plugin marketplace upgrade concordloom
-codex plugin add gopnik@concordloom
+codex plugin marketplace add madduck-tech/gopnik
+codex plugin marketplace upgrade madduck-tech
+codex plugin add gopnik@madduck-tech
 ```
+
+### An installation from before the rename
+
+This marketplace was published as `concordloom` before the organization was
+renamed. When the host still lists it under that name, add the marketplace
+again with the commands above and install `gopnik@madduck-tech`. Remove the
+old registration only through the uninstall guide, after the new selector
+works.
 
 ### Any other agent
 
@@ -136,13 +144,13 @@ When the person selected the repository scope, run the matching command from
 the project root. For Claude Code:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/concordloom/gopnik/main/install.sh | sh -s -- --claude
+curl -fsSL https://raw.githubusercontent.com/madduck-tech/gopnik/main/install.sh | sh -s -- --claude
 ```
 
 For Codex:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/concordloom/gopnik/main/install.sh | sh -s -- --codex
+curl -fsSL https://raw.githubusercontent.com/madduck-tech/gopnik/main/install.sh | sh -s -- --codex
 ```
 
 This needs Python 3.10+, `sh`, `tar`, and `curl` or `wget`. It installs under
