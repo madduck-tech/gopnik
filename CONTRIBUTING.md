@@ -135,8 +135,8 @@ inferred.
 
 The canonical public and runtime identifiers are:
 
-- repository: `concordloom/gopnik`;
-- plugin: `gopnik@concordloom`;
+- repository: `madduck-tech/gopnik`;
+- plugin: `gopnik@madduck-tech`;
 - skills: `gopnik`, `gopnik-critic`, `gopnik-setup`;
 - configuration: `gopnik.json`;
 - setup helper: `gopnik_setup.py`;
@@ -144,6 +144,11 @@ The canonical public and runtime identifiers are:
 
 The retired identity is allowed only in the historical changelog and the
 version 4 migration guides. `tests/test_brand.py` enforces that boundary.
+
+The organization was `concordloom` before it was renamed. That name is
+allowed only where an existing installation still carries it: the version 4
+migration table and the pre-rename notes in the install and uninstall
+guides. Everything else names `madduck-tech`.
 
 ## English and Russian
 

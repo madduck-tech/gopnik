@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/concordloom/gopnik/actions/workflows/ci.yml"><img src="https://github.com/concordloom/gopnik/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/madduck-tech/gopnik/actions/workflows/ci.yml"><img src="https://github.com/madduck-tech/gopnik/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-f29b38" alt="Лицензия MIT"></a>
 </p>
 
@@ -23,7 +23,7 @@ Gopnik — навык состязательной проверки для ИИ-
 
 ```text
 Прежде чем что-либо делать, прочитай эту полную raw-инструкцию только через stdout — не сохраняй её в файл — и точно следуй ей:
-https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md
+https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md
 ```
 
 Инструкция спросит язык и область установки, а затем поэтапно настроит проект.
@@ -91,7 +91,7 @@ Gopnik запускает агент. Это не фоновая служба, �
 
 ```text
 Удали Gopnik. Прочитай полную raw-инструкцию, не сохраняя её в файл, и точно следуй ей:
-https://raw.githubusercontent.com/concordloom/gopnik/main/docs/uninstall.md
+https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/uninstall.md
 ```
 
 ## Лицензия

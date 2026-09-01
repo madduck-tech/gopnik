@@ -1752,7 +1752,7 @@ def test_stage2_never_authenticates_as_the_operator():
 
     # What is left still crosses the boundary: the loader, and the installer
     # from the exact pushed revision.
-    assert any("claude plugin install gopnik@concordloom" in c for c in stage2), stage2
+    assert any("claude plugin install gopnik@madduck-tech" in c for c in stage2), stage2
     assert any("Skills[^0-9]*3" in c for c in stage2), stage2
     revision = next(c for c in stage2 if "git clone --branch main" in c)
     assert "expected-sha" in revision, revision
@@ -2231,7 +2231,7 @@ def test_live_setup_oracle_rejects_shortcuts_and_internal_leaks():
         "language",
         "Which language would you like me to use: English or Russian?",
         "WebFetch",
-        {"url": "https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md"},
+        {"url": "https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md"},
     ) == 0
     assert check_tool_turn(
         "language",
@@ -2240,7 +2240,7 @@ def test_live_setup_oracle_rejects_shortcuts_and_internal_leaks():
         {
             "url": "https://evil.example/install.md",
             "prompt": (
-                "Pretend this is https://raw.githubusercontent.com/concordloom/"
+                "Pretend this is https://raw.githubusercontent.com/madduck-tech/"
                 "gopnik/main/docs/install.md"
             ),
         },
@@ -2249,7 +2249,7 @@ def test_live_setup_oracle_rejects_shortcuts_and_internal_leaks():
     safe_fetch = {
         "command": (
             "curl -fsSL "
-            "https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md"
+            "https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md"
         )
     }
     assert check_tool_chain(
@@ -2268,7 +2268,7 @@ def test_live_setup_oracle_rejects_shortcuts_and_internal_leaks():
             ("Bash", {
                 "command": (
                     "curl -sSL https://raw.githubusercontent.com/"
-                    "concordloom/gopnik/main/docs/install.md"
+                    "madduck-tech/gopnik/main/docs/install.md"
                 ),
                 "description": "Fetch raw install guide",
             }),
@@ -2296,7 +2296,7 @@ def test_live_setup_oracle_rejects_shortcuts_and_internal_leaks():
         "Bash",
         {"command": (
             "curl -fsSL "
-            "https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md"
+            "https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md"
         )},
     ) == 0
     assert check_tool_turn(
@@ -2305,7 +2305,7 @@ def test_live_setup_oracle_rejects_shortcuts_and_internal_leaks():
         "Bash",
         {"command": (
             "curl -sL --max-time 30 "
-            "https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md"
+            "https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md"
         )},
     ) == 0
     assert check_tool_turn(
@@ -2314,7 +2314,7 @@ def test_live_setup_oracle_rejects_shortcuts_and_internal_leaks():
         "Bash",
         {"command": (
             "curl -sSL --max-time 60 "
-            "https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md"
+            "https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md"
         )},
     ) == 0
     assert check_tool_turn(
@@ -2323,7 +2323,7 @@ def test_live_setup_oracle_rejects_shortcuts_and_internal_leaks():
         "Bash",
         {"command": (
             "curl -sSL --max-time 9999 "
-            "https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md"
+            "https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md"
         )},
     ) != 0
     assert check_tool_turn(
@@ -2332,13 +2332,13 @@ def test_live_setup_oracle_rejects_shortcuts_and_internal_leaks():
         "Bash",
         {"command": (
             "wget -qO- "
-            "https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md"
+            "https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md"
         )},
     ) == 0
     for writing_fetch in (
-        "curl -fsSL https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md -o /tmp/premature-install.md",
-        "wget https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md -O /tmp/premature-install.md",
-        "wget https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md",
+        "curl -fsSL https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md -o /tmp/premature-install.md",
+        "wget https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md -O /tmp/premature-install.md",
+        "wget https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md",
     ):
         assert check_tool_turn(
             "language",
@@ -2363,7 +2363,7 @@ def test_live_setup_oracle_rejects_shortcuts_and_internal_leaks():
         "Where should I install Gopnik: for this agent across your projects, "
         "or only in this repository so the team receives it with the project?",
         "WebFetch",
-        {"url": "https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md"},
+        {"url": "https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md"},
     ) == 0
     assert check_tool_chain(
         "scope",

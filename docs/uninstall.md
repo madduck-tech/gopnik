@@ -18,7 +18,9 @@ was onboarding state and should not become uninstall ceremony.
 
 Inspect before deleting. Look for:
 
-- `gopnik@concordloom` in the current agent's plugin registry;
+- `gopnik@madduck-tech` in the current agent's plugin registry, or
+  `gopnik@concordloom` for an installation from before the marketplace was
+  renamed;
 - repository copies of `gopnik/`, `gopnik-critic/`, and `gopnik-setup/`
   under `.claude/skills/` or `.agents/skills/`;
 - project configuration at `gopnik.json`, `.claude/gopnik.json`, or
@@ -48,14 +50,17 @@ deleting any Gopnik configuration.
 For Claude Code:
 
 ```sh
-claude plugin uninstall gopnik@concordloom
+claude plugin uninstall gopnik@madduck-tech
 ```
 
 For Codex:
 
 ```sh
-codex plugin remove gopnik@concordloom
+codex plugin remove gopnik@madduck-tech
 ```
+
+Use the selector the discovery step actually found. An installation from
+before the rename answers to `gopnik@concordloom`.
 
 For repository installation, remove only the exact discovered skill paths:
 
@@ -82,7 +87,7 @@ state that a restart is required.
 
 Finish with what was removed, what was preserved, whether a restart is needed,
 and any scope that could not be removed. Include the reinstall guide:
-`https://raw.githubusercontent.com/concordloom/gopnik/main/docs/install.md`.
+`https://raw.githubusercontent.com/madduck-tech/gopnik/main/docs/install.md`.
 
 If configuration was deleted, say plainly that ordinary uninstall does not
 restore it.

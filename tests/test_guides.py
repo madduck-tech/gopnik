@@ -31,7 +31,7 @@ def test_readme_urls_resolve_to_the_guides_in_this_tree():
     for page in (README, README_RU):
         text = page.read_text(encoding="utf-8")
         urls = re.findall(
-            r"https://raw\.githubusercontent\.com/concordloom/gopnik/main/(docs/(?:install|uninstall)\.md)",
+            r"https://raw\.githubusercontent\.com/madduck-tech/gopnik/main/(docs/(?:install|uninstall)\.md)",
             text,
         )
         assert urls == ["docs/install.md", "docs/uninstall.md"], (page.name, urls)
@@ -87,11 +87,11 @@ def test_install_is_agent_agnostic_and_brings_the_complete_bundle():
     for skill in ("`gopnik`", "`gopnik-critic`", "`gopnik-setup`"):
         assert skill in text, skill
     for route in (
-        "claude plugin marketplace update concordloom",
-        "claude plugin install gopnik@concordloom",
-        "claude plugin update gopnik@concordloom",
-        "codex plugin marketplace upgrade concordloom",
-        "codex plugin add gopnik@concordloom",
+        "claude plugin marketplace update madduck-tech",
+        "claude plugin install gopnik@madduck-tech",
+        "claude plugin update gopnik@madduck-tech",
+        "codex plugin marketplace upgrade madduck-tech",
+        "codex plugin add gopnik@madduck-tech",
         "Any other agent",
         "install.sh | sh",
         "agent-wide installation",
@@ -872,8 +872,8 @@ def test_uninstall_preserves_configuration_unless_separately_confirmed():
 def test_uninstall_is_narrow_and_verifiable():
     text = UNINSTALL.read_text(encoding="utf-8")
     for command in (
-        "claude plugin uninstall gopnik@concordloom",
-        "codex plugin remove gopnik@concordloom",
+        "claude plugin uninstall gopnik@madduck-tech",
+        "codex plugin remove gopnik@madduck-tech",
     ):
         assert command in text, command
     for root in (".claude/skills", ".agents/skills"):
